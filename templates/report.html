@@ -3,6 +3,8 @@
         <title>Launchpad Reports</title>
     </head>
     <body>
-    {{bug_table}}
+        {% for bugs in bug_table %}
+            <li>{{bugs}}</li>
+        {% endfor %}
     </body>
 </html>

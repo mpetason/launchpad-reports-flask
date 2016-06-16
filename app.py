@@ -23,7 +23,7 @@ def report():
         for bug in filtered_bugs[user]:
             bug_count = bug_count + 1 
             bug_table.append([bug_count, user, bug.web_link])
-    bug_table = tabulate(bug_table, headers=["#", "Username", "Bug URL"], tablefmt="psql", numalign="left")
+    #bug_table = tabulate(bug_table, headers=["#", "Username", "Bug URL"], tablefmt="psql", numalign="left")
     return render_template('report.html', bug_table=bug_table)
 
 
