@@ -1,12 +1,17 @@
 <html>
+
     <head>
         <title>Launchpad Reports</title>
     </head>
     <body>
-        <ul>
+    <table border='1'>
         {% for bugs in bug_table %}
-            <li>{{bugs}}</li>
+        <tr>
+            <td>{{bugs[0]}}</td>
+            <td>{{bugs[1]}}</td>
+            <td><a href="{{bugs[2]}}">{{bugs[2]}}</a></td>
+        </tr>
         {% endfor %}
-        </ul>
+    </table>
     </body>
 </html>
