@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
   <head>
     <title>Launchpad Reporting</title>
   </head>
-
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
   <body>
+    <fieldset>
     <form action="/report" method="post">
-        <label for="usernames">Usernames</label>
-        <input type="text" name="usernames"></input><br>
-        <label for="date">Date (Y-M-D)</label>
-        <input type="text" name="date"></input><br>
+        <label for="usernames">Usernames: </label>
+        <input type="text" name="usernames" size="50" required></input><br>
+        <label for="date">Date (Y-M-D): </label>
+        <input type="date" name="date" size="50" required></input><br>
         <input type="submit" value="Submit">
     </form>
+    </fieldset>
   </body>
 </html>
