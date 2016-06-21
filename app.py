@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 # use decorators to link the function to a url
 @app.route('/')
-def hello():
+def index():
     return render_template('index.html')
 
 @app.route('/report', methods=['POST'])
@@ -23,10 +23,7 @@ def report():
         for bug in filtered_bugs[user]:
             bug_count = bug_count + 1 
             bug_table.append([bug_count, user, bug.web_link])
-    #bug_table = tabulate(bug_table, headers=["#", "Username", "Bug URL"], tablefmt="psql", numalign="left")
     return render_template('report.html', bug_table=bug_table)
-
-
 
 # start the server with the 'run()' method
 if __name__ == '__main__':
