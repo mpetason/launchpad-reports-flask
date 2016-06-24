@@ -11,6 +11,7 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+# This will generate the index and save the input data + create a table for printing on /report
 @app.route('/report', methods=['POST'])
 def report():
     usernames = request.form['usernames']
@@ -22,7 +23,7 @@ def report():
         bug_count = 0 
         for bug in filtered_bugs[user]:
             bug_count = bug_count + 1 
-            bug_table.append([bug_count, user, bug.web_link])
+            bug_table.append([bug_count, user, bug.status, bug.date_created.strftime("%Y-%m-%d"), bug.web_link])
     return render_template('report.html', bug_table=bug_table)
 
 # start the server with the 'run()' method

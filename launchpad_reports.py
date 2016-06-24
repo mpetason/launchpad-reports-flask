@@ -35,11 +35,11 @@ if __name__ == "__main__":
     else: 
         start_date = args.after
     filtered_bugs = {}
-    table_bugs = []
+    bug_table = []
     for user in args.usernames:
         filtered_bugs[user] = created_bugs(user, start_date)
         bug_count = 0
         for bug in filtered_bugs[user]:
             bug_count = bug_count + 1
-            table_bugs.append([bug_count, user, bug.status, bug.date_created.strftime("%Y-%m-%d"), bug.web_link])
-    print tabulate(table_bugs, headers=["#", "Username", "Status", "Date Created", "Bug URL"], tablefmt="psql", numalign="left")
+            bug_table.append([bug_count, user, bug.status, bug.date_created.strftime("%Y-%m-%d"), bug.web_link])
+    print tabulate(bug_table, headers=["#", "Username", "Status", "Date Created", "Bug URL"], tablefmt="psql", numalign="left")
