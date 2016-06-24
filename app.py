@@ -1,6 +1,6 @@
 # import the Flask class from the flask module
 from flask import Flask, render_template, request, url_for
-from launchpad_report import created_bugs
+from launchpad_reports import created_bugs
 from tabulate import tabulate
 
 # create the application object

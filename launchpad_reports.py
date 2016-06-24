@@ -9,7 +9,6 @@ import argparse
 cachedir = ".launchpadlib/cache/"
 launchpad = Launchpad.login_anonymously('just testing', 'production', cachedir, version='devel')
 
-# This function will search for Launchpd Tasks with all statuses for specific users. Expected input is UserName + date in ISO format
 def created_bugs(user, start_date):
     lp_user = launchpad.people(user)
     return lp_user.searchTasks(owner=lp_user,created_since=start_date,status=[
@@ -18,7 +17,6 @@ def created_bugs(user, start_date):
                    "Incomplete (without response)"
                    ])
 
-# If running via the CLI we'll return a tabulated result of Bug Total #, Username, Status, Date Created, and Bug URL
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Launchpad Bug Reports per User')
     parser.add_argument('-u', '--usernames', nargs="+", 
@@ -28,6 +26,8 @@ if __name__ == "__main__":
                         type=int)
     parser.add_argument('-a', '--after', 
                         help = 'Search for bugs created After this date. Date is in Y-M-D format')
+    parser.add_argument('-i', '--invalid', 
+                        help = "Hide reults for invalid status")
     args = parser.parse_args()
 
     if not args.after:
