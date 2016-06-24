@@ -1,4 +1,3 @@
-# import the Flask class from the flask module
 from flask import Flask, render_template, request, url_for
 from launchpad_reports import created_bugs
 from tabulate import tabulate
@@ -11,7 +10,7 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-# This will generate the index and save the input data + create a table for printing on /report
+# get bugs from created_bugs and then format the output into a table for printing on /report
 @app.route('/report', methods=['POST'])
 def report():
     usernames = request.form['usernames']
