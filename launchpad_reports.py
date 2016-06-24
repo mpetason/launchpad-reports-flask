@@ -19,7 +19,7 @@ def created_bugs(user, start_date):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Launchpad Bug Reports per User')
     parser.add_argument('-u', '--usernames', nargs="+", 
-                        help = 'enter usernames separated by spaces.',
+                        help = 'enter usernames in comma separated format.',
                         required = True)
     parser.add_argument('-d', '--days', help = 'number of days to go back.',
                         type=int)
@@ -33,7 +33,7 @@ if __name__ == "__main__":
         start_date = args.after
     filtered_bugs = {}
     bug_table = []
-    for user in args.usernames:
+    for user in args.usernames[0].split(','):
         filtered_bugs[user] = created_bugs(user, start_date)
         bug_count = 0
         for bug in filtered_bugs[user]:

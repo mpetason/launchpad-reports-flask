@@ -46,3 +46,14 @@ input[type=submit] {
     border-radius: 4px;
     cursor: pointer;
 }
+.button {
+    width: 200px;
+    display: block;
+    background: #944f38;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    padding: 15px, 20px;
+    text-align: center;
+    text-decoration: none;
+}

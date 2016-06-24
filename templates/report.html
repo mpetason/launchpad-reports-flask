@@ -19,8 +19,10 @@
             <td>{{bugs[2]}}</td>
             <td>{{bugs[3]}}</td>
             <td><a target="_blank" href="{{bugs[2]}}">{{bugs[4]}}</a></td>
-        </tr>
         {% endfor %}
+        </tr>
     </table>
+    <br>
+    <a href="/genCSV?usernames={{usernames}}&start_date={{start_date}}" class="button">Download CSV</a>
     </body>
 </html>
