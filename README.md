@@ -39,23 +39,20 @@ Examples of how to use the CLI via the Container
 Running the Command with usernames in line
 
 Command
-docker exec launchpad python launchpad_reports.py -u mpetason,smachtmes -a 2016-01-01
+docker exec launchpad python launchpad_reports.py -u mpetason -a 2016-01-01
 
 Output
-+-----+------------+---------------+----------------+----------------------------------------------+
-| #   | Username   | Status        | Date Created   | Bug URL                                      |
-|-----+------------+---------------+----------------+----------------------------------------------|
-| 1   | mpetason   | Confirmed     | 2016-01-19     | https://bugs.launchpad.net/fuel/+bug/1535831 |
-| 2   | mpetason   | Confirmed     | 2016-01-19     | https://bugs.launchpad.net/fuel/+bug/1535912 |
-| 1   | smachtmes  | Fix Committed | 2016-04-04     | https://bugs.launchpad.net/fuel/+bug/1566017 |
-| 2   | smachtmes  | Confirmed     | 2016-04-08     | https://bugs.launchpad.net/fuel/+bug/1568058 |
-| 3   | smachtmes  | Fix Committed | 2016-04-19     | https://bugs.launchpad.net/fuel/+bug/1572296 |
-+-----+------------+---------------+----------------+----------------------------------------------+
++-----+------------+-----------+----------------+----------------------------------------------+
+| #   | Username   | Status    | Date Created   | Bug URL                                      |
+|-----+------------+-----------+----------------+----------------------------------------------|
+| 1   | mpetason   | Confirmed | 2016-01-19     | https://bugs.launchpad.net/fuel/+bug/1535831 |
+| 2   | mpetason   | Confirmed | 2016-01-19     | https://bugs.launchpad.net/fuel/+bug/1535912 |
++-----+------------+-----------+----------------+----------------------------------------------+
 
 Running the Command with a For loop for usernames
 
 Command
-for user in {mpetason,smachtmes}; do docker exec launchpad python launchpad_reports.py -u $user -a 2015-01-01;done
+for user in {mpetason,mpetason}; do docker exec launchpad python launchpad_reports.py -u $user -a 2015-01-01;done
 
 Output
 +-----+------------+--------------+----------------+----------------------------------------------+
@@ -65,16 +62,12 @@ Output
 | 2   | mpetason   | Confirmed    | 2016-01-19     | https://bugs.launchpad.net/fuel/+bug/1535831 |
 | 3   | mpetason   | Confirmed    | 2016-01-19     | https://bugs.launchpad.net/fuel/+bug/1535912 |
 +-----+------------+--------------+----------------+----------------------------------------------+
-+-----+------------+---------------+----------------+----------------------------------------------------------------+
-| #   | Username   | Status        | Date Created   | Bug URL                                                        |
-|-----+------------+---------------+----------------+----------------------------------------------------------------|
-| 1   | smachtmes  | Fix Released  | 2015-01-23     | https://bugs.launchpad.net/fuel/+bug/1413816                   |
-| 2   | smachtmes  | Fix Released  | 2015-08-27     | https://bugs.launchpad.net/fuel/+bug/1489625                   |
-| 3   | smachtmes  | Fix Released  | 2015-08-27     | https://bugs.launchpad.net/fuel/+bug/1489629                   |
-| 4   | smachtmes  | Fix Released  | 2015-11-24     | https://bugs.launchpad.net/python-openstackclient/+bug/1519132 |
-| 5   | smachtmes  | Fix Committed | 2016-04-04     | https://bugs.launchpad.net/fuel/+bug/1566017                   |
-| 6   | smachtmes  | Confirmed     | 2016-04-08     | https://bugs.launchpad.net/fuel/+bug/1568058                   |
-| 7   | smachtmes  | Fix Committed | 2016-04-19     | https://bugs.launchpad.net/fuel/+bug/1572296                   |
-+-----+------------+---------------+----------------+----------------------------------------------------------------+
++-----+------------+--------------+----------------+----------------------------------------------+
+| #   | Username   | Status       | Date Created   | Bug URL                                      |
+|-----+------------+--------------+----------------+----------------------------------------------|
+| 1   | mpetason   | Fix Released | 2015-10-07     | https://bugs.launchpad.net/fuel/+bug/1503753 |
+| 2   | mpetason   | Confirmed    | 2016-01-19     | https://bugs.launchpad.net/fuel/+bug/1535831 |
+| 3   | mpetason   | Confirmed    | 2016-01-19     | https://bugs.launchpad.net/fuel/+bug/1535912 |
++-----+------------+--------------+----------------+----------------------------------------------+
 #####################################################################################################################################
 
