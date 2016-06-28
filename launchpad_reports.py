@@ -18,18 +18,18 @@ def created_bugs(user, start_date):
 # CLI setup to allow for CLI usage with specified flags.
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Launchpad Bug Reports per User')
-    parser.add_argument('-u', '--usernames', nargs="+", 
+    parser.add_argument('-u', '--usernames', nargs="+",
                         help = 'enter usernames in comma separated format.',
                         required = True)
     parser.add_argument('-d', '--days', help = 'number of days to go back.',
                         type=int)
-    parser.add_argument('-a', '--after', 
+    parser.add_argument('-a', '--after',
                         help = 'Search for bugs created After this date. Date is in Y-M-D format')
     args = parser.parse_args()
 
     if not args.after:
         start_date = datetime.today() - timedelta(days=args.days)
-    else: 
+    else:
         start_date = args.after
     filtered_bugs = {}
     bug_table = []
