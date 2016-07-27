@@ -2,6 +2,10 @@
 
 ## Pre-Built Docker Image: docker pull mpetason/launchpad_reports
 
+The prebuilt docker image will let you download and then run the container without building it locally.
+
+`docker run -d --name launchpad_reports -p 8001:8001 mpetason/launchpad_reports:latest`
+
 Flask + Launchpad Reports
 
 Install Requirements: `pip install -r requirements.txt`
@@ -16,4 +20,4 @@ A Dockerfile has been included in case you want to modify and create an image fr
 
 To create docker image: `docker build -t launchpad_reports_flask:latest .`
 
-To run container: `docker run -d -p 8001:8001 launchpad_reports_flask`
+To run container: `docker run -d --name launchpad_reports -p 8001:8001 launchpad_reports_flask`
