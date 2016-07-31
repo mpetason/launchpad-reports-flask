@@ -29,6 +29,7 @@ def report():
             bug_table.append([bug_count, user, bug.status, bug.date_created.strftime("%Y-%m-%d"), bug.web_link])
     return render_template('report.html', usernames=usernames, start_date=start_date, bug_table=bug_table)
 
+# Creates a CSV file that will match the output on the page. 
 @app.route('/genCSV')
 def genCSV():
     usernames = request.args.get('usernames')
