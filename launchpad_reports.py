@@ -27,6 +27,7 @@ if __name__ == "__main__":
                         help = 'Search for bugs created After this date. Date is in Y-M-D format')
     args = parser.parse_args()
 
+# Pull start date based on which value was entered. 
     if not args.after:
         start_date = datetime.today() - timedelta(days=args.days)
     else:
@@ -39,4 +40,6 @@ if __name__ == "__main__":
         for bug in filtered_bugs[user]:
             bug_count += 1
             bug_table.append([bug_count, user, bug.status, bug.date_created.strftime("%Y-%m-%d"), bug.web_link])
+
+# Print out content in an easy to read format - psql. 
     print tabulate(bug_table, headers=["#", "Username", "Status", "Date Created", "Bug URL"], tablefmt="psql", numalign="left")
