@@ -6,7 +6,7 @@ The prebuilt docker image will let you download and then run the container witho
 
 `docker run -d --name launchpad_reports -p 8001:8001 mpetason/launchpad_reports:latest`
 
-Flask + Launchpad Reports
+## Flask + Launchpad Reports
 
 Install Requirements: `pip install -r requirements.txt`
 
