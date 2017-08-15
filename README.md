@@ -16,7 +16,7 @@ Default : http://0.0.0.0:8001
 
 The WebUI will allow you to enter in users, separated by commas, and a start date. The start date will look for bugs between the start date and todays date. 
 
-A Dockerfile has been included in case you want to modify and create an image from scratch. The default bind host and port are: 0.0.0.0:8001, which may conflict with already running applications. To modify this you can edit app.py and change where the server binds. 
+A Dockerfile has been included in case you want to modify and create an image from scratch. The default bind host and port are: 0.0.0.0:8001, which may conflict with already running applications. To modify this you can edit app.py and change where the server binds. If you are building a docker image - make sure you update the docker run commands.  
 
 To create docker image: `docker build -t launchpad_reports_flask:latest .`
 
