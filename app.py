@@ -13,7 +13,8 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-# get bugs from created_bugs and then format the output into a table for printing on /report
+# get bugs from created_bugs and then format the output into a table for
+# printing on /report
 @app.route('/report', methods=['POST'])
 def report():
     usernames = request.form['usernames']
@@ -26,10 +27,13 @@ def report():
         bug_count = 0
         for bug in filtered_bugs[user]:
             bug_count = bug_count + 1
-            bug_table.append([bug_count, user, bug.status, bug.date_created.strftime("%Y-%m-%d"), bug.web_link])
-    return render_template('report.html', usernames=usernames, start_date=start_date, bug_table=bug_table)
+            bug_table.append([bug_count, user, bug.status,
+                             bug.date_created.strftime("%Y-%m-%d"),
+                             bug.web_link])
+    return render_template('report.html', usernames=usernames,
+                            start_date=start_date, bug_table=bug_table)
 
-# Creates a CSV file that will match the output on the page. 
+# Creates a CSV file that will match the output on the page.
 @app.route('/genCSV')
 def genCSV():
     usernames = request.args.get('usernames')
@@ -44,7 +48,9 @@ def genCSV():
         bug_count = 0
         for bug in filtered_bugs[user]:
             bug_count = bug_count + 1
-            bug_csv.append([bug_count, user, bug.status, bug.date_created.strftime("%Y-%m-%d"), bug.web_link])
+            bug_csv.append([bug_count, user, bug.status,
+                            bug.date_created.strftime("%Y-%m-%d"),
+                            bug.web_link])
     writer.writerow(['Bug Count', 'User', 'Status', 'Creation Date', 'Link'])
     writer.writerows(bug_csv)
     csv_filename = "Launchpad_Reports-" + str(datetime.today()) + ".csv"
