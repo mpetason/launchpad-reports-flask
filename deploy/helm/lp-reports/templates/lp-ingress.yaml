@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: lp-reports-ingress
+  annotations:
+    ingress.bluemix.net/redirect-to-https: "True"
+    kubernetes.io/tls-acme: "True"
+spec:
+  tls:
+    - secretName: lp-mpetason-com-tls
+      hosts:
+      - lp.mpetason.com
+  rules:
+  - host: lp.mpetason.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: lp-reports-service
+          servicePort: 80

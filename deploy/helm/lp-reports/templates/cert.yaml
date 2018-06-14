@@ -1,0 +1,22 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: lp-mpetason-com
+  namespace: default
+spec:
+  secretName: lp-mpetason-com-tls
+  issuerRef:
+    name: lp-reports-testing
+  commonName: lp.mpetason.com
+  dnsNames:
+  - lp.mpetason.com
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+      - lp.mpetason.com
+    - http01:
+        ingress: my-ingress
+      domains:
+      - lp.mpetason.com
