@@ -6,7 +6,6 @@ metadata:
 spec:
   secretName: lp-mpetason-com-tls
   issuerRef:
-    kind: ClusterIssuer
     name: lp-reports-testing
   commonName: lp.mpetason.com
   dnsNames:

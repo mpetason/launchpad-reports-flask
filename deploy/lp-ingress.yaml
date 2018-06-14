@@ -7,9 +7,9 @@ metadata:
     kubernetes.io/tls-acme: "True"
 spec:
   tls:
-  - secretName: lp-reports
-    hosts:
-    - lp.mpetason.com
+    - secretName: lp-mpetason-com-tls
+      hosts:
+      - lp.mpetason.com
   rules:
   - host: lp.mpetason.com
     http:
