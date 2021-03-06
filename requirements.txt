@@ -1,5 +1,5 @@
 click==6.6
-Flask==1.1.2
+flask
 httplib2==0.19.0
 itsdangerous==0.24
 Jinja2==2.10.1
