@@ -1,9 +1,9 @@
-FROM ubuntu:latest
+FROM ubuntu:bionic
 MAINTAINER Michael Petersen "mpetason@gmail.com"
 RUN apt-get update -y
-RUN apt-get install -y python3-pip python-dev build-essential
+RUN apt-get install -y python-pip python-dev build-essential
 COPY . /app
 WORKDIR /app
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 ENTRYPOINT ["python"]
 CMD ["app.py"]
