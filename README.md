@@ -4,7 +4,7 @@
 
 The prebuilt docker image will let you download and then run the container without building it locally.
 
-`docker run -d --name launchpad_reports -p 8001:8001 mpetason/launchpad_reports:latest`
+`docker run -d --name launchpad_reports -p 8001:8001 mpetason/launchpad-reports-flask:latest`
 
 ## Flask + Launchpad Reports
 
