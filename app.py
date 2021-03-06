@@ -1,5 +1,4 @@
-from flask import Flask
-# , render_template, request, Response
+from flask import Flask, render_template, request, Response
 from launchpad_reports import created_bugs
 from tabulate import tabulate
 from datetime import datetime
